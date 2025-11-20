@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malini - Portfolio</title>
+    <link rel="stylesheet" href="/My-Portfolio/my-style.css"> <!-- rename file: no space -->
+</head>
+<script>
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+
+            tab.classList.add('active');
+            document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+    });
+</script>
+<script>
+function toggleProject(element) {
+    const details = element.nextElementSibling;
+    details.classList.toggle("hidden");
+}
+</script>
+<script>
+    const tabs = document.querySelectorAll(".tab");
+    const contents = document.querySelectorAll(".tab-content");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+            
+            // Remove active style from all tabs
+            tabs.forEach(t => t.classList.remove("active"));
+            
+            // Add active to clicked tab
+            tab.classList.add("active");
+
+            // Hide all content
+            contents.forEach(c => c.classList.remove("active"));
+
+            // Show the selected content
+            const selected = tab.getAttribute("data-tab");
+            document.getElementById(selected).classList.add("active");
+        });
+    });
+</script>
+
+
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Malini.</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="highlight">Malini</span></h1>
+            <h3 class="role">Computer Science Student</h3>
+            <p class="hero-text">
+                Passionate about technology, programming, and building real-world projects.
+            </p>
+        </div>
+
+        <div class="hero-image">
+            <img src="/My-Portfolio/unnamed (6).jpg" alt="Malini's Photo" class="profile-pic">
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-modern" id="about">
+    <div class="about-card">
+        <div class="about-left">
+            <img src="/My-Portfolio/about-me-image.png" alt="About Image">
+        </div>
+
+        <div class="about-right">
+            <h2>About Me</h2>
+            <p>
+                I'm a first-year Computer Science and Engineering undergraduate passionate about
+                programming, robotics, and building real-world tech projects.
+            </p>
+           
+
+<!-- EXPERIENCE TAB -->
+ <div class="about-tabs">
+    <p class="tab active" data-tab="experience">Experience</p>
+    <p class="tab" data-tab="education">Education</p>
+</div>
+
+<!-- EXPERIENCE TAB -->
+<div class="tab-content active" id="experience">
+    <ul>
+        <li>2024 – Built Railway Elephant Detection System</li>
+        <li>2024 – Maze Solving Robot (Python)</li>
+    </ul>
+</div>
+
+<!-- EDUCATION TAB -->
+<div class="tab-content" id="education">
+    <ul>
+        <li>2024 – CSE Undergraduate</li>
+        <li>2022 – Completed A/L (Science Stream)</li>
+    </ul>
+</div>
+
+<script src="/My-Portfolio/tabs.js"></script>
+
+
+
+
+       
+    </section>
+
+
+    <!-- SKILLS -->
+    <section class="skills-modern" id="skills">
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills-container">
+
+        <!-- TECHNICAL SKILLS -->
+        <div class="skills-box">
+            <h3>Technical Skills</h3>
+            <ul>
+                <li>Python</li>
+                <li>Arduino / Embedded C</li>
+                <li>Robotics Basics</li>
+                <li>HTML, CSS, JavaScript</li>
+                <li>React (Beginner)</li>
+                <li>Problem Solving & Algorithms</li>
+                <li>Basic AI / Computer Vision (OpenCV Simulations)</li>
+            </ul>
+        </div>
+
+        <!-- SOFT SKILLS -->
+        <div class="skills-box">
+            <h3>Soft Skills</h3>
+            <ul>
+                <li>Teamwork</li>
+                <li>Presentation Skills</li>
+                <li>Creativity</li>
+                <li>Communication</li>
+                <li>Time Management</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- PROJECTS -->
+    <section class="projects-section" id="projects">
+    <h2 class="section-title">Projects</h2>
+
+    <!-- 📌 Arduino Robot Car -->
+    <div class="project-box" onclick="toggleProject(this)">
+        <h3 class="project-title">Arduino Robot Car</h3>
+    </div>
+
+    <div class="project-details hidden">
+        <p>
+            An Arduino-based autonomous robot car using ultrasonic sensors for obstacle detection,
+            motor drivers for movement control, and embedded C programs for navigation logic.
+        </p>
+
+        <img src="/My-Portfolio/robot-car.png" alt="Arduino Robot Car" class="project-image">
+    </div>
+
+    <!-- 📌 Railway Elephant Detection System -->
+    <div class="project-box" onclick="toggleProject(this)">
+        <h3 class="project-title">Railway Elephant Detection System</h3>
+    </div>
+
+    <div class="project-details hidden">
+        <p>
+            A real-time railway safety system that detects elephants using cameras, sensors,
+            and alerts train drivers through a mobile app. Developed to reduce elephant-train
+            collisions in Sri Lanka.
+        </p>
+
+        <img src="/My-Portfolio/elephant-detection.png" alt="Elephant Detection System" class="project-image">
+    </div>
+
+    <!-- 📌 Maze Solving Robot -->
+    <div class="project-box" onclick="toggleProject(this)">
+        <h3 class="project-title">Maze Solving Robot (Python)</h3>
+    </div>
+
+    <div class="project-details hidden">
+        <p>
+            A Python-based maze-solving simulation using matrices, depth-first search (DFS),
+            and stack-based algorithms to navigate from start to finish.
+        </p>
+
+        <img src="/My-Portfolio/maze-solver.png" alt="Maze Solving Robot" class="project-image">
+    </div>
+
+</section>
+
+    
+
+    <!-- CONTACT -->
+    <section class="contact-modern" id="contact">
+
+    <div class="contact-left">
+        <h2>Contact Me</h2>
+
+        <p class="contact-item">
+            mthisaruka@gmail.com    
+        </p>
+
+        <p class="contact-item">
+            📞 0710383144
+        </p>
+
+        <div class="social-icons">
+            <a href="#">🌐</a>
+            <a href="#">🐦</a>
+            <a href="#">📸</a>
+            <a href="#">🔗</a>
+        </div>
+
+        <button class="cv-btn">Download CV</button>
+    </div>
+
+    <!-- FORM STARTS HERE -->
+    <form 
+        class="contact-right"
+        action="https://formspree.io/f/mgvnndwr" 
+        method="POST"
+    >
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+
+</section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Malini. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
